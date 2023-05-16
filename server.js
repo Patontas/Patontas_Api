@@ -7,14 +7,13 @@ const bodyParser = require('body-parser');
 const app = express();
 
 app.use(express.json({ limit: '50mb' }));
-app.use(cors());
+app.use(
+    cors({
+        oorigin: '*',
+    })
+);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-//PayPal API
-app.get('/api/keys/paypal', (req, res) => {
-    res.send(process.env.PAYPAL_CLIENT_ID || 'sb ');
-});
 
 //Routes
 app.use('/api', routes);
