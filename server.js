@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json({ limit: '50mb' }));
 app.use(
     cors({
-        origin: 'https://patontas.netlify.app',
+        origin: ['https://patontas.netlify.app', '*'],
     })
 );
 app.use(bodyParser.urlencoded({ extended: true }));
